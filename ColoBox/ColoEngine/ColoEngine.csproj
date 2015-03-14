@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{050DC649-DB19-42C5-99AF-ED90B5732A5D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ColoEngine</RootNamespace>
+    <AssemblyName>ColoEngine</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ExtremeFoundException.cs" />
+    <Compile Include="Model\BorderControl\Border.cs" />
+    <Compile Include="Model\BorderControl\BorderCollection.cs" />
+    <Compile Include="Model\BorderControl\BorderNumberPair.cs" />
+    <Compile Include="Model\BorderControl\BorderVerifier.cs" />
+    <Compile Include="Model\BorderControl\LinearLine.cs" />
+    <Compile Include="Model\BorderControl\RawBorder.cs" />
+    <Compile Include="Model\BorderControl\TiltBorder.cs" />
+    <Compile Include="Model\BorderControl\TiltedBorderCollection.cs" />
+    <Compile Include="Model\BorderControl\YBorderCollection.cs" />
+    <Compile Include="Model\ColoBox.cs" />
+    <Compile Include="Model\ColoOptimizer.cs" />
+    <Compile Include="Model\DirectionControl\DirectionBase.cs" />
+    <Compile Include="Model\DirectionControl\DirectionL2R.cs" />
+    <Compile Include="Model\DirectionControl\DirectionR2L.cs" />
+    <Compile Include="Model\DirectionControl\FirstBorderPositive.cs" />
+    <Compile Include="Model\DirectionControl\FirstBorderNegative.cs" />
+    <Compile Include="Model\DirectionControl\FirstBorderBase.cs" />
+    <Compile Include="Model\Enums.cs" />
+    <Compile Include="Model\Init\InitParams.cs" />
+    <Compile Include="Model\Init\LayerName.cs" />
+    <Compile Include="Model\Init\Obstacle.cs" />
+    <Compile Include="Model\Init\ProjectClass.cs" />
+    <Compile Include="Model\Init\RackDefinition.cs" />
+    <Compile Include="Model\LayoutManager.cs" />
+    <Compile Include="Model\LocationStatemachine\Machine.cs" />
+    <Compile Include="Model\LocationStatemachine\StateBase.cs" />
+    <Compile Include="Model\LocationStatemachine\State_HitObstacle.cs" />
+    <Compile Include="Model\LocationStatemachine\State_InsideBounding.cs" />
+    <Compile Include="Model\LocationStatemachine\State_OutsideBounding.cs" />
+    <Compile Include="Model\LocationStatemachine\State_RowStart.cs" />
+    <Compile Include="Model\LookAheadPath\CategorizedLocation.cs" />
+    <Compile Include="Model\LookAheadPath\IPathBase.cs" />
+    <Compile Include="Model\LookAheadPath\PathSection.cs" />
+    <Compile Include="Model\LookAheadPath\PathSectionBuilder.cs" />
+    <Compile Include="Model\Point.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\netDxf\netDxf.csproj">
+      <Project>{785380e0-ceb9-4c34-82e5-60d0e33e848e}</Project>
+      <Name>netDxf</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

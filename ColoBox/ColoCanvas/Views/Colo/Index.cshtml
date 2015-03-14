@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2></h2>
+
+@*<canvas id="myCanvas" width="1200" height="700" style="border:1px solid #000000;"></canvas> *@
+<table ng-controller="mainCtrl" >
+    <tr>
+        <td>
+            <svg id="svgid" height="700" width="700" style="border: 1px solid black;"></svg></td>
+        <td valign="top">
+            <table>
+                <tr>
+                    <td>
+                        Origin X:
+                                    <input type="text" id="OriginX" ng-model="originX" value="0" style="width: 30px" /><br />
+                        Origin Y:
+                                    <input type="text" id="OriginY" ng-model="originY" value="0" style="width: 30px" /> <br />
+                                Delay (ms):<input type="text" name="Delay" ng-model="delay" id="Delay" value="10" style="width: 20px" />
+                        
+                        <div id="drawings" class="radioGroup">
+                            <input type="radio" name="Drawing" ng-model="drawing" value="Ken-Crazy-Colo" style="width: 10px" />Crazy-Colo<br />
+                            <input type="radio" name="Drawing" ng-model="drawing" value="Ken-Tough-Room-Vertical-v2" checked="checked" style="width: 10px" />Tough-Room-Vertical-v2<br />
+                        </div>                      
+                    </td>               
+                    <td>
+                            <fieldset>
+                                <legend>Parameters</legend>
+                                Cold Aisle Width:
+                              <input type="text" name="ColdWidth" ng-model="coldAisleWidth" id="ColdWidth" style="width: 20px" value="20" /><br />
+                                Space After Obstacle:
+                    <input type="text" name="SpaceAfterObstacle" ng-model="spaceAfterObstacle" id="SpaceAfterObstacle" style="width: 20px" value="10" /><br />
+                                How many racks:
+                    <input type="text" name="Racks" id="Racks" ng-model="howManyRacks" style="width: 20px" value="60" /><br />
+
+                                IndexToStop:
+                    <input type="text" name="IndexToStop" id="IndexToStop" ng-model="indexToStop" style="width: 20px" value="18" /><br />
+                            </fieldset>
+                   </td>
+               </tr>
+                <tr>
+                    <td>
+                        <fieldset>
+                            <legend>Assignment Direction</legend>
+                            <div id="direction" class="radioGroup">
+                                <input type="radio" name="Direction" ng-model="direction" value="L2R" checked="checked" style="width: 10px" />Left to right<br />
+                                <input type="radio" name="Direction" ng-model="direction" value="R2L" style="width: 10px" />Right to left<br />
+                            </div>
+                        </fieldset>
+
+
+                    </td>               
+                    <td>
+                        <fieldset>
+                            <legend>Openning</legend>
+                            Racks Count Before Openning:
+                    <input type="text" name="RacksBeforeOpening" id="RacksBeforeOpening" style="width: 20px" value="6" /><br />
+                            Racks Opening Space:
+                    <input type="text" name="RacksOpenningSpace" id="RacksOpenningSpace" style="width: 20px" value="10" /><br />
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        <button ng-click="Start()" >Start</button>
+                        <button ng-click="Refresh()" >Refresh</button>
+                        
+                    </td>
+                    <td>
+                        <button ng-click="AddOffset()" >Add Offset</button><br />
+                        LineIndex: <input type="text" ng-model="LineIndex" style="width:20px" />
+                        &nbsp;&nbsp;&nbsp;
+                        LineOffset: <input type="text" ng-model="LineOffset" style="width:20px" />
+                        <table>
+                            <tr ng-repeat="offset in offsets">
+                                <td>{{offset.lineIndex}}</td>
+                                <td>{{offset.offset}}</td>
+                                <td><button ng-click="RemoveEntry()">Remove</button></td>
+                            </tr>
+                        </table>
+                        
+                    </td>
+                </tr>
+            </table>
+    </tr>
+</table>
+
+
+
+

@@ -1,0 +1,40 @@
+﻿<table>
+    <tr valign="top">
+        <td style="width:500px;">
+            <div>
+                <select ng-model="selectedFile" >
+                   <option ng-repeat="file in existingFiles" value="{{file.Id}}">{{file.Name}}</option>
+                </select>
+
+                <div ng-style="{visibility: showGetLayers }" >
+                    <!--<input type="button" ng-click="GetLayers()" value="Get Layers" />-->
+                </div>
+
+                <div ng-style="{visibility: showLayersList }" >
+                    <select ng-model="selectedLayer">
+                        <option ng-repeat="layer in layers" value="{{layer}}">{{layer}}</option>
+                    </select>
+                    <input type="button" ng-click="Next()" value="Next" />
+                </div>
+
+                <div ng-style="{visibility: obstaclePanel}">
+                    <div style="border:1px solid black">
+                        <span>Selected Obstacles</span>
+                        <input type="button" value="Apply" ng-click="applyObstacles()"/>
+                        <ul>
+                            <li ng-repeat="obst in obstacles" id="{{obst.id}}">Obstacle {{obst.index}} <input type="button" value="remove" ng-click="removeObstacle()" /></li>
+                        </ul>
+                    </div>
+                </div>
+                <div ng-style="{visibility: universePanel}">
+                    <h1>Select universe</h1>
+                </div>
+            </div>
+        </td>
+        <td>
+            <div id="LayersCanvas">
+                <svg id="svgid" height="700" width="700" style="pointer-events: all"></svg>
+            </div>
+        </td>
+    </tr>
+</table>

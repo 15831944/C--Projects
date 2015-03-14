@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Universe";
+}
+
+<h2>Universe</h2>
+<div ng-controller="mainCtrl">
+<div id="svgcont" ><svg id="svgid" height="700" width="700" style="border: 1px solid black;pointer-events: all"></svg></div>
+    <div>
+<button ng-click="GetUniverse()" >Get Universe</button>
+            <br />
+            <span>Universe Layer:</span><input ng-model="UniverseLayer" type="text" />
+    </div>
+</div>
+
